@@ -5,8 +5,9 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import Home from '../screens/Home.screen';
 import ExploreScreen from '../screens/Explore.screen';
-import Icon from 'react-native-vector-icons/Fontisto';
 import {Text, View} from 'react-native';
+import Likes from '../screens/Likes.screen';
+import Messages from '../screens/Messages.screen';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -17,9 +18,19 @@ const Navigation = () => {
         screenOptions={{
           headerTitle: (_props): ReactNode => {
             return (
-              <View style={{flexDirection: 'row'}}>
-                <Icon name="tinder" />
-                <Text style={{color: 'red', marginLeft: 5}}>Tinder</Text>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <View>
+                  <Fontisto name="tinder" size={20} />
+                </View>
+                <Text
+                  style={{
+                    color: 'red',
+                    marginLeft: 5,
+                    fontSize: 24,
+                    fontWeight: '500',
+                  }}>
+                  tinder
+                </Text>
               </View>
             );
           },
@@ -30,7 +41,11 @@ const Navigation = () => {
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
-                <Icon name="tinder" color={focused ? 'red' : color} size={24} />
+                <Fontisto
+                  name="tinder"
+                  color={focused ? 'red' : color}
+                  size={24}
+                />
               );
             },
           }}
@@ -41,7 +56,41 @@ const Navigation = () => {
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
-                <Icon name="tinder" color={focused ? 'red' : color} size={24} />
+                <Fontisto
+                  name="tinder"
+                  color={focused ? 'red' : color}
+                  size={24}
+                />
+              );
+            },
+          }}
+        />
+        <BottomTab.Screen
+          name="Likes"
+          component={Likes}
+          options={{
+            tabBarIcon: ({focused, color}) => {
+              return (
+                <Fontisto
+                  name="tinder"
+                  color={focused ? 'red' : color}
+                  size={24}
+                />
+              );
+            },
+          }}
+        />
+        <BottomTab.Screen
+          name="Messages"
+          component={Messages}
+          options={{
+            tabBarIcon: ({focused, color}) => {
+              return (
+                <Ionicons
+                  name="md-chatbubbles-sharp"
+                  color={focused ? 'red' : color}
+                  size={24}
+                />
               );
             },
           }}
