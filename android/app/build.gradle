@@ -278,7 +278,6 @@ dependencies {
         implementation jscFlavor
     }
 
-    implementation project(':react-native-vector-icons')
 }
 
 if (isNewArchitectureEnabled()) {

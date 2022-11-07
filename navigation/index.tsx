@@ -8,6 +8,7 @@ import ExploreScreen from '../screens/Explore.screen';
 import {Text, View} from 'react-native';
 import Likes from '../screens/Likes.screen';
 import Messages from '../screens/Messages.screen';
+import {TinderIcon} from '../assets/svg';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -20,7 +21,7 @@ const Navigation = () => {
             return (
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <View>
-                  <Fontisto name="tinder" size={20} />
+                  <TinderIcon />
                 </View>
                 <Text
                   style={{
@@ -38,8 +39,9 @@ const Navigation = () => {
         <BottomTab.Screen
           name="Home"
           component={Home}
-          options={{
-            tabBarIcon: ({focused, color}) => {
+          options={
+            {
+              /*       tabBarIcon: ({focused, color}) => {
               return (
                 <Fontisto
                   name="tinder"
@@ -47,13 +49,14 @@ const Navigation = () => {
                   size={24}
                 />
               );
-            },
-          }}
+            }, */
+            }
+          }
         />
         <BottomTab.Screen
           name="Explore"
           component={ExploreScreen}
-          options={{
+          /*   options={{
             tabBarIcon: ({focused, color}) => {
               return (
                 <Fontisto
@@ -63,12 +66,12 @@ const Navigation = () => {
                 />
               );
             },
-          }}
+          }} */
         />
         <BottomTab.Screen
           name="Likes"
           component={Likes}
-          options={{
+          /*   options={{
             tabBarIcon: ({focused, color}) => {
               return (
                 <Fontisto
@@ -78,12 +81,12 @@ const Navigation = () => {
                 />
               );
             },
-          }}
+          }} */
         />
         <BottomTab.Screen
           name="Messages"
           component={Messages}
-          options={{
+          /*    options={{
             tabBarIcon: ({focused, color}) => {
               return (
                 <Ionicons
@@ -93,7 +96,7 @@ const Navigation = () => {
                 />
               );
             },
-          }}
+          }} */
         />
       </BottomTab.Navigator>
     </NavigationContainer>
