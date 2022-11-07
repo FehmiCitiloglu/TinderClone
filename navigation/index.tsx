@@ -9,6 +9,7 @@ import {Text, View} from 'react-native';
 import Likes from '../screens/Likes.screen';
 import Messages from '../screens/Messages.screen';
 import {TinderIcon} from '../assets/svg';
+import Profile from '../screens/Profile.screen';
 
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
@@ -98,6 +99,7 @@ const Navigation = () => {
             },
           }} */
         />
+        <BottomTab.Screen name="Profile" component={Profile} />
       </BottomTab.Navigator>
     </NavigationContainer>
   );
