@@ -1,4 +1,4 @@
-import {StyleSheet, Pressable, View, Animated} from 'react-native';
+import {StyleSheet, Pressable, View, Animated, UIManager} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   getValueByScreenHeight,
@@ -26,7 +26,7 @@ const Card = () => {
           {
             rotateY: flipAnimation.interpolate({
               inputRange: [0, 15, 45],
-              outputRange: ['0deg', '-45deg', '0deg'],
+              outputRange: ['0deg', '-25deg', '0deg'],
             }),
           },
         ],
@@ -36,11 +36,8 @@ const Card = () => {
         duration: 500,
         useNativeDriver: false,
       }).start();
-      console.log('next error work');
-
       return;
     }
-    console.log('next work');
 
     setCurrentImageIndex(prevIndex => (prevIndex += 1));
   };
@@ -52,7 +49,7 @@ const Card = () => {
           {
             rotateY: flipAnimation.interpolate({
               inputRange: [0, 15, 45],
-              outputRange: ['0deg', '45deg', '0deg'],
+              outputRange: ['0deg', '25deg', '0deg'],
             }),
           },
         ],
@@ -69,15 +66,15 @@ const Card = () => {
   };
 
   useEffect(() => {
-    console.log(currentImageIndex);
-  }, [currentImageIndex]);
+    UIManager.setLayoutAnimationEnabledExperimental &&
+      UIManager.setLayoutAnimationEnabledExperimental(true);
+  });
 
   return (
     <View style={styles.container}>
       <Pressable
         style={[styles.pressable, styles.rightPressable]}
-        onPress={(...params) => {
-          console.log('right', params);
+        onPress={() => {
           handleNextImage();
         }}
         onPressOut={() => {
@@ -114,7 +111,7 @@ export default Card;
 const styles = StyleSheet.create({
   container: {
     height: getValueByScreenHeight(70),
-    width: getValueByScreenWidth(90),
+    width: getValueByScreenWidth(95),
     borderRadius: 10,
     overflow: 'hidden',
   },
