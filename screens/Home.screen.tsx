@@ -1,7 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-import {TinderIcon} from '../assets/svg';
+import {
+  HeartIcon,
+  LightningIcon,
+  RefreshIcon,
+  StarIcon,
+  TinderIcon,
+} from '../assets/svg';
 import {colors} from '../values/colors';
 import {OutlineButton} from '../components/Button';
 
@@ -16,7 +22,25 @@ const Home = () => {
         onPress={() => null}
       />
       <OutlineButton
-        Icon={TinderIcon}
+        Icon={StarIcon}
+        color={colors.purple}
+        size="s"
+        onPress={() => null}
+      />
+      <OutlineButton
+        Icon={HeartIcon}
+        color={colors.green}
+        size="l"
+        onPress={() => null}
+      />
+      <OutlineButton
+        Icon={RefreshIcon}
+        color={colors.white}
+        size="l"
+        onPress={() => null}
+      />
+      <OutlineButton
+        Icon={LightningIcon}
         color={colors.purple}
         size="s"
         onPress={() => null}

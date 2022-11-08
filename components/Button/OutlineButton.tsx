@@ -19,11 +19,12 @@ const OutlineButton = ({color, Icon, size = 'm', onPress}: ButtonProps) => {
 
   return (
     <Pressable
-      style={[
+      style={({pressed}) => [
         {
           width,
           borderRadius: width,
           borderColor: color,
+          opacity: pressed ? 0.5 : 1,
         },
         styles.container,
       ]}
