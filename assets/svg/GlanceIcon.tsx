@@ -1,7 +1,8 @@
 import {G, Path, Svg} from 'react-native-svg';
 import * as React from 'react';
+import {IconProps} from '../../types/asset-types';
 
-const Icon = ({width = 20, height = 20}: {width?: number; height?: number}) => {
+const Icon = ({width = 20, height = 20}: IconProps) => {
   return (
     <Svg
       x="0px"

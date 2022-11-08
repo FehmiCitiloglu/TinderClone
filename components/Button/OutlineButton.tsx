@@ -1,15 +1,26 @@
 import {Pressable, StyleSheet} from 'react-native';
 import React, {ElementType} from 'react';
-import {ColorType} from '../../types/valueTypes';
+import {ColorType} from '../../types/value-types';
+import {IconProps} from '../../types/asset-types';
 
+type IconElement = ElementType<IconProps>;
 interface ButtonProps {
   color: ColorType;
-  Icon: ElementType;
+  Icon: IconElement;
   size?: 's' | 'm' | 'l';
   onPress: () => void;
+  iconHeight?: IconProps['height'];
+  iconWidth?: IconProps['width'];
 }
 
-const OutlineButton = ({color, Icon, size = 'm', onPress}: ButtonProps) => {
+const OutlineButton = ({
+  color,
+  Icon,
+  size = 'm',
+  onPress,
+  iconWidth,
+  iconHeight,
+}: ButtonProps) => {
   let width = 40;
   if (size === 'l') {
     width = 60;
@@ -29,7 +40,7 @@ const OutlineButton = ({color, Icon, size = 'm', onPress}: ButtonProps) => {
         styles.container,
       ]}
       onPress={onPress}>
-      <Icon color={color} />
+      <Icon color={color} width={iconWidth} height={iconHeight} />
     </Pressable>
   );
 };

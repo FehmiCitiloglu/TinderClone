@@ -4,3 +4,8 @@ export {default as StarIcon} from './StarIcon';
 export {default as HeartIcon} from './HeartIcon';
 export {default as RefreshIcon} from './RefreshIcon';
 export {default as LightningIcon} from './LightningIcon';
+export {default as CloseIcon} from './CloseIcon';
+export {default as MessageIcon} from './MessageIcon';
+export {default as PersonIcon} from './PersonIcon';
+export {default as ShineIcon} from './ShineIcon';
+export {default as SearchIcon} from './SearchIcon';

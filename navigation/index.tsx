@@ -7,7 +7,13 @@ import Home from '../screens/Home.screen';
 import ExploreScreen from '../screens/Explore.screen';
 import Likes from '../screens/Likes.screen';
 import Messages from '../screens/Messages.screen';
-import {TinderIcon} from '../assets/svg';
+import {
+  MessageIcon,
+  PersonIcon,
+  SearchIcon,
+  ShineIcon,
+  TinderIcon,
+} from '../assets/svg';
 import Profile from '../screens/Profile.screen';
 import {colors} from '../values/colors';
 import {Header} from '../components';
@@ -38,7 +44,7 @@ const Navigation = () => {
           component={ExploreScreen}
           options={{
             tabBarIcon: ({focused, color}) => {
-              return <TinderIcon color={focused ? colors.tinder : color} />;
+              return <SearchIcon color={focused ? colors.tinder : color} />;
             },
           }}
         />
@@ -47,7 +53,7 @@ const Navigation = () => {
           component={Likes}
           options={{
             tabBarIcon: ({focused, color}) => {
-              return <TinderIcon color={focused ? colors.tinder : color} />;
+              return <ShineIcon color={focused ? colors.yellow : color} />;
             },
           }}
         />
@@ -56,11 +62,19 @@ const Navigation = () => {
           component={Messages}
           options={{
             tabBarIcon: ({focused, color}) => {
-              return <TinderIcon color={focused ? colors.tinder : color} />;
+              return <MessageIcon color={focused ? colors.tinder : color} />;
             },
           }}
         />
-        <BottomTab.Screen name="Profile" component={Profile} />
+        <BottomTab.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            tabBarIcon: ({focused, color}) => (
+              <PersonIcon color={focused ? colors.tinder : color} />
+            ),
+          }}
+        />
       </BottomTab.Navigator>
     </NavigationContainer>
   );

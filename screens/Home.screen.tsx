@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 import {
+  CloseIcon,
   HeartIcon,
   LightningIcon,
   RefreshIcon,
@@ -23,7 +24,7 @@ const Home = () => {
       />
       <OutlineButton
         Icon={StarIcon}
-        color={colors.purple}
+        color={colors.blue}
         size="s"
         onPress={() => null}
       />
@@ -43,6 +44,14 @@ const Home = () => {
         Icon={LightningIcon}
         color={colors.purple}
         size="s"
+        onPress={() => null}
+      />
+      <OutlineButton
+        Icon={CloseIcon}
+        color={colors.purple}
+        iconWidth={36}
+        iconHeight={36}
+        size="m"
         onPress={() => null}
       />
     </View>

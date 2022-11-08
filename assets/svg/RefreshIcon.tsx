@@ -1,16 +1,9 @@
 import {Path, Svg} from 'react-native-svg';
 import * as React from 'react';
-import {ColorType} from '../../types/valueTypes';
 
-const Icon = ({
-  width = 20,
-  height = 20,
-  color,
-}: {
-  width?: number;
-  height?: number;
-  color: ColorType;
-}) => {
+import {IconProps} from '../../types/asset-types';
+
+const Icon = ({width = 20, height = 20, color}: IconProps) => {
   return (
     <Svg width={width} height={height} viewBox="0 0 119.4 122.88">
       <Path

@@ -1,16 +1,8 @@
 import {Polygon, Svg} from 'react-native-svg';
 import * as React from 'react';
-import {ColorType} from '../../types/valueTypes';
+import {IconProps} from '../../types/asset-types';
 
-const Icon = ({
-  width = 20,
-  height = 20,
-  color,
-}: {
-  width?: number;
-  height?: number;
-  color: ColorType;
-}) => {
+const Icon = ({width = 20, height = 20, color}: IconProps) => {
   return (
     <Svg viewBox="0 0 512 512" width={width} height={height}>
       <Polygon
