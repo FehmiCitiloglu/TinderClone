@@ -1,60 +1,15 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-
-import {
-  CloseIcon,
-  HeartIcon,
-  LightningIcon,
-  RefreshIcon,
-  StarIcon,
-  TinderIcon,
-} from '../assets/svg';
-import {colors} from '../values/colors';
-import {OutlineButton} from '../components/Button';
+import {AnimatedCard} from '../components/Card';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Home</Text>
-      <OutlineButton
-        Icon={TinderIcon}
-        color={colors.purple}
-        size="l"
-        onPress={() => null}
-      />
-      <OutlineButton
-        Icon={StarIcon}
-        color={colors.blue}
-        size="s"
-        onPress={() => null}
-      />
-      <OutlineButton
-        Icon={HeartIcon}
-        color={colors.green}
-        size="l"
-        onPress={() => null}
-      />
-      <OutlineButton
-        Icon={RefreshIcon}
-        color={colors.white}
-        size="l"
-        onPress={() => null}
-      />
-      <OutlineButton
-        Icon={LightningIcon}
-        color={colors.purple}
-        size="s"
-        onPress={() => null}
-      />
-      <OutlineButton
-        Icon={CloseIcon}
-        color={colors.purple}
-        iconWidth={36}
-        iconHeight={36}
-        size="m"
-        onPress={() => null}
-      />
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <AnimatedCard />
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -64,10 +19,5 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  text: {
-    textAlign: 'center',
-    fontSize: 50,
-    color: 'red',
   },
 });
