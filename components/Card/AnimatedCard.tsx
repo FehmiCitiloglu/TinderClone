@@ -14,7 +14,7 @@ import Card from './Card';
 
 const AnimatedCard = () => {
   return (
-    <View>
+    <>
       <Card />
       <View style={styles.buttonsContainer}>
         <OutlineButton
@@ -56,7 +56,7 @@ const AnimatedCard = () => {
           onPress={() => null}
         />
       </View>
-    </View>
+    </>
   );
 };
 
