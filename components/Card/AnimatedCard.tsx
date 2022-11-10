@@ -17,7 +17,12 @@ import {
 } from '../../assets/svg';
 import {colors} from '../../values/colors';
 import Card from './Card';
-import {getValueByScreenWidth} from '../../utils/window-sizes';
+import {
+  getValueByScreenHeight,
+  getValueByScreenWidth,
+} from '../../utils/window-sizes';
+
+type Direction = 'left' | 'right' | 'up';
 
 const AnimatedCard = () => {
   const position = useRef(new Animated.ValueXY()).current;
@@ -28,10 +33,16 @@ const AnimatedCard = () => {
         position.setValue({x: gesture.dx, y: gesture.dy});
       },
       onPanResponderRelease: (e, gestureState) => {
+        console.log(
+          'gestureState.dy',
+          gestureState.dy < -getValueByScreenHeight(45),
+        );
         if (gestureState.dx > getValueByScreenWidth(25)) {
           forceSwipe('right');
         } else if (gestureState.dx < -getValueByScreenWidth(25)) {
           forceSwipe('left');
+        } else if (gestureState.dy < -getValueByScreenHeight(25)) {
+          forceSwipe('up');
         } else {
           resetPosition();
         }
@@ -50,7 +61,7 @@ const AnimatedCard = () => {
     LayoutAnimation.spring();
   }, []);
 
-  const onSwipeComplete = (_direction: 'left' | 'right'): void => {
+  const onSwipeComplete = (_direction: Direction): void => {
     position.setValue({x: 0, y: 0});
   };
 
@@ -73,14 +84,20 @@ const AnimatedCard = () => {
     return {...position.getLayout(), transform: [{rotate}]};
   };
 
-  function forceSwipe(direction: 'left' | 'right') {
-    const x =
-      direction === 'right'
-        ? getValueByScreenWidth(100)
-        : -getValueByScreenWidth(100);
+  function forceSwipe(direction: Direction) {
+    let x = 0;
+    let y = 0;
+
+    if (direction === 'up') {
+      y = -getValueByScreenHeight(100);
+    } else if (direction === 'right') {
+      x = getValueByScreenWidth(100);
+    } else {
+      x = -getValueByScreenWidth(100);
+    }
 
     Animated.timing(position, {
-      toValue: {x, y: 0},
+      toValue: {x, y},
       duration: 250,
       useNativeDriver: false,
     }).start(() => {
@@ -117,7 +134,9 @@ const AnimatedCard = () => {
             Icon={StarIcon}
             color={colors.blue}
             size="s"
-            onPress={() => null}
+            onPress={() => {
+              forceSwipe('up');
+            }}
           />
           <OutlineButton
             Icon={HeartIcon}
